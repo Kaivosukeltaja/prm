@@ -15,6 +15,9 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              episodeNumber
+            }            
           }
         }
       }
@@ -29,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
       const id = edge.node.id;
       createPage({
         // Path for this page — required
-        path: `${edge.node.fields.slug}`,
+        path: `${edge.node.frontmatter.episodeNumber}`,
         component: episodeTemplate,
         context: {
           id,

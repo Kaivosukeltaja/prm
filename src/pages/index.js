@@ -16,7 +16,7 @@ export default ({ data }) => {
     </Helmet> */ }
     { episodes.map(({ node: episode }) => (
       <div key={episode.id}>
-        <Link to={episode.fields.slug}>
+        <Link to={episode.frontmatter.episodeNumber}>
           {episode.frontmatter.title}
         </Link>
       </div>
@@ -40,6 +40,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
+            episodeNumber
             date(formatString: "MMMM DD, YYYY")
           }
         }

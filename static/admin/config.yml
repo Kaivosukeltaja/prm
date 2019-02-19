@@ -10,10 +10,11 @@ collections:
     label: "Episode"
     folder: "src/pages/episodes"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{episodeNumber}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "episode"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Episode number", name: "episodeNumber", widget: "string"}
       - {label: "Audio File", name: "file", widget: "file"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
