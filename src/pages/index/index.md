@@ -1,5 +1,6 @@
 ---
 title: Etusivu
+templateKey: index-page
 ---
 # Parin Rivin muutos
 

@@ -4,7 +4,8 @@ import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 
 export default ({ data }) => {
-  const episodes = data.allMarkdownRemark.edges;
+  const episodes = data.episodes.edges;
+  const page = data.page;
   return (
   <div>
     { /*
@@ -16,6 +17,7 @@ export default ({ data }) => {
     </Helmet> */ }
     { episodes.map(({ node: episode }) => (
       <div key={episode.id}>
+        <div dangerouslySetInnerHTML={{ __html: page.edges[0].node.html }} />
         <Link to={episode.frontmatter.episodeNumber}>
           {episode.frontmatter.title}
         </Link>
@@ -26,7 +28,7 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    episodes: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "episode" } }}
     ) {
@@ -43,6 +45,18 @@ export const pageQuery = graphql`
             episodeNumber
             date(formatString: "MMMM DD, YYYY")
           }
+        }
+      }
+    }
+    page: allMarkdownRemark(
+      filter: { fileAbsolutePath: {regex: "/index/.*md$/"}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          html
         }
       }
     }

@@ -55,6 +55,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `File`) {
     createNodeField({ node, name: `slug`, value: node.name })
   } else if (node.internal.type === `MarkdownRemark`) {
+    console.log('LOLOLOLOLO', node)
     const fileNode = getNode(node.parent)
     console.log(`\n`, fileNode.relativePath)
     const value = createFilePath({ node, getNode, basePath: 'episodes' })
