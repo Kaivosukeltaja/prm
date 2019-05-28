@@ -9,6 +9,9 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
     "gatsby": "^2.0.33",
     "gatsby-link": "^2.0.8",
     "gatsby-plugin-catch-links": "^2.0.9",
@@ -20,6 +23,8 @@
     "netlify-cms": "^2.2.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "reactstrap": "^8.0.0",
+    "styled-components": "^4.1.3"
   }
 }
