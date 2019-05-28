@@ -1,8 +1,10 @@
 ---
-title: Etusivu
 templateKey: index-page
+title: Etusivu
 ---
 # Parin Rivin muutos
+
+![Niko Salminen](/assets/inc_niko_salminen-small.jpg)
 
 Parin rivin muutos on podcast, jossa tarkastellaan digitaalisten palveluiden ja ohjelmistokehityksen tämän hetken kiinnostavimpia aiheita laidasta laitaan, rohkeasti ja arkailematta. Jokaisen jakson aihetta on tarkoitus käsitellä siten, että kuulija ymmärtäisi miten päästä asian kanssa itse eteenpäin. Onko kyseessä parin rivin muutos vai ei?
 
