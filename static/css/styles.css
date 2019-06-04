@@ -1,3 +1,7 @@
 h1, h2 {
   color: #B3FF60;
 }
+
+aside img {
+  max-width: 100%;
+}
