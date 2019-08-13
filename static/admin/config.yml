@@ -20,6 +20,19 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Hosts", name: "hosts", widget: "relation", collection: "hosts", multiple: true, searchFields: ["title", "twitter", "name"], valueField: "title"}
+
+  - name: "hosts"
+    label: "Hosts"
+    folder: "src/pages/hosts"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "host"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Full name", name: "name", widget: "string"}
+      - {label: "Twitter handle", name: "twitter", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: image}
 
   - name: "pages"
     label: "Pages"
