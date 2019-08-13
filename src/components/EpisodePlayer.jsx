@@ -1,7 +1,7 @@
 import React from "react";
 
-const EpisodePlayer = ({ episode }) => {
-  return <audio controls src={episode.frontmatter.file} />;
+const EpisodePlayer = ({ episode, autoPlay }) => {
+  return <audio controls src={episode.frontmatter.file} autoPlay={autoPlay} />;
 };
 
 export default EpisodePlayer;

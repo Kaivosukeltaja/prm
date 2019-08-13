@@ -1,7 +1,7 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Content, { HTMLContent } from '../components/Content'
-import Helmet from 'react-helmet';
+import React from "react";
+import { graphql } from "gatsby";
+import Content, { HTMLContent } from "../components/Content";
+import Helmet from "react-helmet";
 
 const EpisodeTemplate = ({
   content,
@@ -10,33 +10,35 @@ const EpisodeTemplate = ({
   tags,
   title,
   file,
-  helmet,
+  helmet
 }) => {
   const EpisodeContent = contentComponent || Content;
-  return(
+  return (
     <div>
       Hello Episode!
       <EpisodeContent content={content} />
       <audio controls src={file} />
     </div>
   );
-}
+};
 
 const Episode = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <EpisodeTemplate
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} - Parin rivin muutos`} />}
+      helmet={
+        <Helmet title={`${post.frontmatter.title} - Parin rivin muutos`} />
+      }
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
       file={post.frontmatter.file}
     />
-  )
-}
+  );
+};
 
 export default Episode;
 
@@ -54,4 +56,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

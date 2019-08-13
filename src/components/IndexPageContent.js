@@ -1,7 +1,7 @@
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
-export default () => (
+const IndexPageContent = () => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -12,10 +12,8 @@ export default () => (
         }
       }
     `}
-    render={data => (
-      <div>
-        
-      </div>
-    )}
+    render={() => <div />}
   />
-)
+);
+
+export default IndexPageContent;
