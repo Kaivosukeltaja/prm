@@ -21,6 +21,12 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-layout",
+      options: {
+        component: require.resolve("./src/components/Layout.jsx"),
+      },
+    },    
+    {
       resolve: "gatsby-plugin-feed",
       options: {
         query: `

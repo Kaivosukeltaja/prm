@@ -16,6 +16,7 @@
     "gatsby-link": "^2.0.8",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-feed": "^2.0.13",
+    "gatsby-plugin-layout": "^1.1.13",
     "gatsby-plugin-netlify-cms": "^3.0.7",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-source-filesystem": "^2.0.16",

@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "reactstrap";
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
 import EpisodeList from "../components/EpisodeList";
 
 class IndexPage extends React.Component {
@@ -31,36 +30,34 @@ class IndexPage extends React.Component {
     const page = data.page;
 
     return (
-      <Layout>
-        <Container>
-          <MainContentBg>
-            <Row>
-              <Col sm="8">
-                <MainContent>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: page.edges[0].node.html
-                    }}
-                  />
-                  <EpisodeList
-                    episodes={episodes}
-                    playEpisode={this.playEpisode}
-                  />
-                </MainContent>
-              </Col>
-              <Col sm="4">
-                <Sidebar>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: page.edges[1].node.html
-                    }}
-                  />
-                </Sidebar>
-              </Col>
-            </Row>
-          </MainContentBg>
-        </Container>
-      </Layout>
+      <Container>
+        <MainContentBg>
+          <Row>
+            <Col sm="8">
+              <MainContent>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: page.edges[0].node.html
+                  }}
+                />
+                <EpisodeList
+                  episodes={episodes}
+                  playEpisode={this.playEpisode}
+                />
+              </MainContent>
+            </Col>
+            <Col sm="4">
+              <Sidebar>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: page.edges[1].node.html
+                  }}
+                />
+              </Sidebar>
+            </Col>
+          </Row>
+        </MainContentBg>
+      </Container>
     );
   }
 }
@@ -104,33 +101,6 @@ export const getFrontPageContentQuery = graphql`
   }
 `;
 
-const Page = styled.div`
-  background-color: #000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ffffff;
-`;
-
-const TopBar = styled.div`
-  position: sticky;
-  align-self: stretch;
-  top: 0;
-  z-index: 1;
-`;
-
-const NavBar = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em;
-`;
-
-const NavBarBg = styled.div`
-  background-color: #b4eb45;
-  background-image: linear-gradient(to right, #b4eb45, #7ed321);
-`;
 
 const MainContent = styled.div`
   padding: 2rem 1rem;
