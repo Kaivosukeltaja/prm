@@ -14,7 +14,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "episode"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Episode number", name: "episodeNumber", widget: "string"}
+      - {label: "Episode number", name: "slug", widget: "string"}
       - {label: "Audio File", name: "file", widget: "file"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
@@ -28,7 +28,7 @@ collections:
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "host"}
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Title", name: "slug", widget: "string"}
       - {label: "Full name", name: "name", widget: "string"}
       - {label: "Twitter handle", name: "twitter", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}

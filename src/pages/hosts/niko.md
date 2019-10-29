@@ -1,6 +1,6 @@
 ---
 templateKey: host
-title: Niko
+slug: Niko
 name: Niko Salminen
 twitter: '@kaivosukeltaja'
 description: >-

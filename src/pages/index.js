@@ -1,13 +1,11 @@
 import React from "react";
+
+import { graphql } from "gatsby";
 import { Container, Row, Col } from "reactstrap";
 import styled from "styled-components";
-import { graphql } from "gatsby";
 
+import Layout from "../components/Layout";
 import EpisodeList from "../components/EpisodeList";
-import EpisodePlayer from "../components/EpisodePlayer";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../static/css/styles.css";
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -33,26 +31,7 @@ class IndexPage extends React.Component {
     const page = data.page;
 
     return (
-      <Page>
-        <TopBar>
-          <Container>
-            <NavBarBg>
-              <Row>
-                <Col>
-                  <NavBar>
-                    <div>Parin Rivin Muutos</div>
-                    {this.state.episodePlaying && (
-                      <EpisodePlayer
-                        episode={this.state.episodePlaying}
-                        autoPlay={true}
-                      />
-                    )}
-                  </NavBar>
-                </Col>
-              </Row>
-            </NavBarBg>
-          </Container>
-        </TopBar>
+      <Layout>
         <Container>
           <MainContentBg>
             <Row>
@@ -81,7 +60,7 @@ class IndexPage extends React.Component {
             </Row>
           </MainContentBg>
         </Container>
-      </Page>
+      </Layout>
     );
   }
 }
@@ -102,7 +81,7 @@ export const getFrontPageContentQuery = graphql`
           frontmatter {
             title
             templateKey
-            episodeNumber
+            slug
             date(formatString: "MMMM DD, YYYY")
             file
           }

@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              episodeNumber
+              slug
             }            
           }
         }
@@ -27,12 +27,12 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog post pages.
+    // Create episode pages.
     result.data.allMarkdownRemark.edges.forEach(edge => {
       const id = edge.node.id;
       createPage({
         // Path for this page — required
-        path: `${edge.node.frontmatter.episodeNumber}`,
+        path: `${edge.node.frontmatter.slug}`,
         component: episodeTemplate,
         context: {
           id,
@@ -55,9 +55,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `File`) {
     createNodeField({ node, name: `slug`, value: node.name })
   } else if (node.internal.type === `MarkdownRemark`) {
-    console.log('LOLOLOLOLO', node)
     const fileNode = getNode(node.parent)
-    console.log(`\n`, fileNode.relativePath)
     const value = createFilePath({ node, getNode, basePath: 'episodes' })
     createNodeField({
       name: `slug`,
