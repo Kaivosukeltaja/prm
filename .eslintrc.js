@@ -9,7 +9,11 @@ module.exports = {
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "require": "readonly",
+        "exports": "readonly",
+        "module": "readonly",
+        "__dirname": "readonly",
     },
     "parserOptions": {
         "ecmaFeatures": {

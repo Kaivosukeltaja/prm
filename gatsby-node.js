@@ -1,9 +1,9 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  const episodeTemplate = path.resolve(`src/templates/episode.js`)
+  const { createPage } = actions;
+  const episodeTemplate = path.resolve("src/templates/episode.js");
   // Query for markdown nodes to use in creating pages.
   // You can query for whatever data you want to create pages for e.g.
   // products, portfolio items, landing pages, etc.
@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then(result => {
     if (result.errors) {
-      throw result.errors
+      throw result.errors;
     }
 
     // Create episode pages.
@@ -45,22 +45,22 @@ exports.createPages = ({ graphql, actions }) => {
           // The page "path" is always available as a GraphQL
           // argument.
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `File`) {
-    createNodeField({ node, name: `slug`, value: node.name })
-  } else if (node.internal.type === `MarkdownRemark`) {
-    const fileNode = getNode(node.parent)
-    const value = createFilePath({ node, getNode, basePath: 'episodes' })
+  const { createNodeField } = actions;
+  if (node.internal.type === "File") {
+    createNodeField({ node, name: "slug", value: node.name });
+  } else if (node.internal.type === "MarkdownRemark") {
+    // const fileNode = getNode(node.parent);
+    const value = createFilePath({ node, getNode, basePath: "episodes" });
     createNodeField({
-      name: `slug`,
+      name: "slug",
       node,
       value,
-    })
+    });
   }
-}
+};

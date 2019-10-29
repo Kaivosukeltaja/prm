@@ -1,27 +1,27 @@
 module.exports = {
   siteMetadata: {
-    title: `Parin Rivin Muutos`,
-    siteUrl: `https://prm.houston.io`,
-    description: `Suomenkielinen podcast kehityksestä, ketteryydestä ja kaikesta kivasta!`,
+    title: "Parin Rivin Muutos",
+    siteUrl: "https://prm.houston.io",
+    description: "Suomenkielinen podcast kehityksestä, ketteryydestä ja kaikesta kivasta!",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-catch-links",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
         name: "pages",
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [],
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: "gatsby-plugin-feed",
       options: {
         query: `
           {
@@ -45,8 +45,8 @@ module.exports = {
                   url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
                   custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                });
+              });
             },
             query: `
               {
@@ -76,4 +76,4 @@ module.exports = {
       },      
     },
   ],
-}
+};
