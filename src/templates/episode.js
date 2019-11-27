@@ -17,7 +17,6 @@ const EpisodeTemplate = ({
     <div>
       Hello Episode!
       <EpisodeContent content={content} />
-      <audio controls src={file} />
     </div>
   );
 };

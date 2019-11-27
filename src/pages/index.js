@@ -1,66 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { graphql } from "gatsby";
 import { Container, Row, Col } from "reactstrap";
 import styled from "styled-components";
 
 import EpisodeList from "../components/EpisodeList";
+import { PlayerDispatchContext } from "../components/EpisodePlayer";
 
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      episodePlaying: null
-    };
-    this.playEpisode = this.playEpisode.bind(this);
-  }
-
-  playEpisode(episode) {
+const IndexPage = ({ data }) => {
+  const dispatch = useContext(PlayerDispatchContext);
+  const playEpisode = (episode) => {
     return () => {
-      this.setState(({ state }) => ({
-        ...state,
-        episodePlaying: episode
-      }));
+      dispatch({
+        type: "play",
+        episode,
+      });
     };
-  }
+  };
 
-  render() {
-    const { data } = this.props;
-    const episodes = data.episodes.edges;
-    const page = data.page;
+  const episodes = data.episodes.edges;
+  const page = data.page;
 
-    return (
-      <Container>
-        <MainContentBg>
-          <Row>
-            <Col sm="8">
-              <MainContent>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: page.edges[0].node.html
-                  }}
-                />
-                <EpisodeList
-                  episodes={episodes}
-                  playEpisode={this.playEpisode}
-                />
-              </MainContent>
-            </Col>
-            <Col sm="4">
-              <Sidebar>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: page.edges[1].node.html
-                  }}
-                />
-              </Sidebar>
-            </Col>
-          </Row>
-        </MainContentBg>
-      </Container>
-    );
-  }
-}
+  return (
+    <Container>
+      <MainContentBg>
+        <Row>
+          <Col sm="8">
+            <MainContent>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: page.edges[0].node.html
+                }}
+              />
+              <EpisodeList
+                episodes={episodes}
+                playEpisode={playEpisode}
+              />
+            </MainContent>
+          </Col>
+          <Col sm="4">
+            <Sidebar>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: page.edges[1].node.html
+                }}
+              />
+            </Sidebar>
+          </Col>
+        </Row>
+      </MainContentBg>
+    </Container>
+  );
+};
 
 export const getFrontPageContentQuery = graphql`
   query IndexQuery {

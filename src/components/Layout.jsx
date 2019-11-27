@@ -1,33 +1,19 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 import { Container, Row, Col } from "reactstrap";
 import styled from "styled-components";
 
-import EpisodePlayer from "./EpisodePlayer";
+import EpisodePlayer, { episodePlayerReducer, PlayerDispatchContext } from "./EpisodePlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../static/css/styles.css";
 
-class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      episodePlaying: null
-    };
-    this.playEpisode = this.playEpisode.bind(this);
-  }
+const initialState = { episodePlaying: null };
 
-  playEpisode(episode) {
-    return () => {
-      this.setState(({ state }) => ({
-        ...state,
-        episodePlaying: episode
-      }));
-    };
-  }
-
-  render() {
-    return (
-      <Page>
+const Layout = ({ children }) => {
+  const [state, dispatch] = useReducer(episodePlayerReducer, initialState);
+  return (
+    <Page>
+      <PlayerDispatchContext.Provider value={dispatch}>
         <TopBar>
           <Container>
             <NavBarBg>
@@ -35,9 +21,9 @@ class Layout extends React.Component {
                 <Col>
                   <NavBar>
                     <div>Parin Rivin Muutos</div>
-                    {this.state.episodePlaying && (
+                    {state.episodePlaying && (
                       <EpisodePlayer
-                        episode={this.state.episodePlaying}
+                        episode={state.episodePlaying}
                         autoPlay={true}
                       />
                     )}
@@ -47,13 +33,11 @@ class Layout extends React.Component {
             </NavBarBg>
           </Container>
         </TopBar>
-        <div>
-          {this.props.children}
-        </div>
-      </Page>
-    );
-  }
-}
+        <div>{children}</div>
+      </PlayerDispatchContext.Provider>
+    </Page>
+  );
+};
 
 const Page = styled.div`
   background-color: #000;
