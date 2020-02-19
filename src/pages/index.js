@@ -56,13 +56,14 @@ const IndexPage = ({ data }) => {
 export const getFrontPageContentQuery = graphql`
   query IndexQuery {
     episodes: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "episode" } } }
     ) {
       edges {
         node {
           excerpt(pruneLength: 400)
           id
+          html
           fields {
             slug
           }

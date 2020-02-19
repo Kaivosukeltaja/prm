@@ -58,7 +58,8 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] }
+                  q,
+                  filter: { frontmatter: { templateKey: { eq: "episode" } } }
                 ) {
                   edges {
                     node {
@@ -76,7 +77,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed",
+            title: "Parin Rivin Muutos",
           },
         ],
       },      

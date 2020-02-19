@@ -9,7 +9,10 @@ exports.createPages = ({ graphql, actions }) => {
   // products, portfolio items, landing pages, etc.
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 1000,
+        filter: { frontmatter: { templateKey: { eq: "episode" } } }
+      ) {
         edges {
           node {
             fields {
