@@ -10,9 +10,13 @@ templateKey: index-sidebar
 
 Kaikesta uudesta ja kiiltävästä innostunut koodijäärä, jonka ura on kulkenut 90-luvun multimediaromppudevaajasta Javan ja PHP:n kautta fronttidevauksen ja ketterän kehityksen ihmeelliseen maailmaan. Pyörittää kotonakin scrumia ja treenikämpällä kanbania.
 
+![Pasi Honkanen](/assets/inc_pasi_honkanen-small.png)
+
 **Pasi Honkanen**
 
 Prosessi Pasinakin tunnettu menetelmämies, joka on kulkenut melkein joka sopen softakehityskentässä. Organisaatiot ja erityisesti digitaaliset palveluorganisaatiot ovat tämän päivän kasvusuunta, mutta vannoutuneelta TDD mieheltä devauskin taipuu vielä pöytälaatikkotasolla Reactista Scalaan ja ehkä sieltä vielä jostain syövereistä Swingikin irtoaa. Ketteryyttä on treenattu jo vuosituhannen alusta asti.
+
+![Antti Rintsi Rintala](/assets/inc_antti_rintala-small.png)
 
 **Antti "Rintsi" Rintala**
 
